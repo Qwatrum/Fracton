@@ -1,0 +1,101 @@
+[gd_scene load_steps=9 format=3 uid="uid://4ejkexupcbqa"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_8b5rk"]
+[ext_resource type="FontFile" uid="uid://7xpcevw7wcuq" path="res://fonts/Rubik/static/Rubik-SemiBold.ttf" id="3_03cu7"]
+[ext_resource type="Texture2D" uid="uid://c1ekjwfqf44hu" path="res://assets/fracton_circle.png" id="3_gs54c"]
+[ext_resource type="PackedScene" uid="uid://bv02s7u64xo6x" path="res://scenes/button.tscn" id="5_5q513"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1dcy3"]
+bg_color = Color(0.917647, 0.890196, 0.172549, 1)
+corner_radius_top_left = 999
+corner_radius_top_right = 999
+corner_radius_bottom_right = 999
+corner_radius_bottom_left = 999
+
+[sub_resource type="Theme" id="Theme_drrg1"]
+Panel/styles/panel = SubResource("StyleBoxFlat_1dcy3")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7k734"]
+radius = 446.809
+
+[sub_resource type="LabelSettings" id="LabelSettings_qlbx2"]
+font = ExtResource("3_03cu7")
+font_size = 20
+font_color = Color(0.913725, 0.207843, 0.858824, 1)
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_8b5rk")
+
+[node name="Background" type="Panel" parent="."]
+offset_left = -44.5
+offset_top = -44.5
+offset_right = 45.5
+offset_bottom = 45.5
+mouse_filter = 2
+theme = SubResource("Theme_drrg1")
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="Links" parent="Buttons" instance=ExtResource("5_5q513")]
+scale = Vector2(0.5, 0.5)
+image_name = "link"
+
+[node name="GitHub" parent="Buttons" instance=ExtResource("5_5q513")]
+scale = Vector2(0.5, 0.5)
+image_name = "github"
+
+[node name="Settings" parent="Buttons" instance=ExtResource("5_5q513")]
+scale = Vector2(0.5, 0.5)
+
+[node name="Timer" parent="Buttons" instance=ExtResource("5_5q513")]
+scale = Vector2(0.5, 0.5)
+image_name = "clock"
+
+[node name="Notes" parent="Buttons" instance=ExtResource("5_5q513")]
+scale = Vector2(0.5, 0.5)
+image_name = "wirte"
+
+[node name="Drawing" parent="Buttons" instance=ExtResource("5_5q513")]
+scale = Vector2(0.5, 0.5)
+image_name = "drawing"
+
+[node name="ToDo" parent="Buttons" instance=ExtResource("5_5q513")]
+scale = Vector2(0.5, 0.5)
+image_name = "checklist"
+
+[node name="AI" parent="Buttons" instance=ExtResource("5_5q513")]
+scale = Vector2(0.5, 0.5)
+image_name = "ai"
+
+[node name="FractonCircle" type="Sprite2D" parent="."]
+scale = Vector2(0.094, 0.094)
+texture = ExtResource("3_gs54c")
+
+[node name="Camera2D" type="Camera2D" parent="FractonCircle"]
+scale = Vector2(4, 4)
+
+[node name="Area2D" type="Area2D" parent="FractonCircle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FractonCircle/Area2D"]
+shape = SubResource("CircleShape2D_7k734")
+
+[node name="Hint" type="Label" parent="."]
+offset_left = -115.0
+offset_top = -82.0
+offset_right = 117.0
+offset_bottom = 104.0
+text = "Move window anywhere
+
+
+
+
+and press enter.
+esc to move again."
+label_settings = SubResource("LabelSettings_qlbx2")
+horizontal_alignment = 1
+
+[connection signal="input_event" from="FractonCircle/Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="FractonCircle/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="FractonCircle/Area2D" to="." method="_on_area_2d_mouse_exited"]
