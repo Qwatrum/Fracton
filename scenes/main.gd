@@ -2,11 +2,38 @@ extends Node
 
 @onready var main_window: Window = get_window()
 @onready var hint = $"Hint"
+
+@onready var settings_window = preload("res://scenes/settings.tscn")
+@onready var checklist_window = preload("res://scenes/checklist.tscn")
+@onready var close_window = preload("res://scenes/close.tscn")
+@onready var notes_window = preload("res://scenes/notes.tscn")
+@onready var drawing_window = preload("res://scenes/drawing.tscn")
+
+@onready var windows = {"settings":[settings_window,0],"checklist":[checklist_window,0],"close":[close_window,0],"notes":[notes_window,0],"drawing":[drawing_window,0]}
+
 var moving: bool
 var buttons_shown: bool
 var loading: bool
 
+
+var settings
+var save_file_path = "user://save"
+var save_file_name = "DataSaver.tres"
+var data = Data.new()
+func dir_absolute(path):
+	DirAccess.make_dir_absolute(path)
+func load_settings():
+	if FileAccess.file_exists(save_file_path + save_file_name):
+		data = ResourceLoader.load(save_file_path + save_file_name)
+		settings = data.settings.duplicate()
+	else:
+		data.settings = [false,false,false,false,false,false]
+		ResourceSaver.save(data, save_file_path + save_file_name)
+		load_settings()
+
 func _ready():
+	dir_absolute(save_file_path)
+	load_settings()
 	
 	ProjectSettings.set_setting("display/window/per_pixel_transparency/allowed", true)
 	main_window.title = "Fracton"
@@ -26,6 +53,9 @@ func _ready():
 	$"Buttons".hide()
 	set_button_positions()
 	
+	if settings[0]:
+		$"Hint".hide()
+	
 	
 func _process(_delta):
 	
@@ -36,7 +66,6 @@ func _process(_delta):
 		main_window.position.x += 49 #64
 		main_window.position.y += 78 #100
 		moving = false
-		print(main_window.position)
 		
 		hint.hide()
 	if Input.is_action_just_pressed("nope") and not moving:
@@ -59,18 +88,7 @@ func _process(_delta):
 		main_window.position.y -= 5
 	if Input.is_action_just_pressed("ui_down"):
 		main_window.position.y += 5
-		
 	
-	'''
-	<a href="https://www.flaticon.com/free-icons/chatbot" title="chatbot icons">Chatbot icons created by LAFS - Flaticon</a>
-	<a href="https://www.flaticon.com/free-icons/essay" title="essay icons">Essay icons created by RIkas Dzihab - Flaticon</a>
-	<a href="https://www.flaticon.com/free-icons/clock" title="clock icons">Clock icons created by Ilham Fitrotul Hayat - Flaticon</a>
-	<a href="https://www.flaticon.com/free-icons/github" title="github icons">Github icons created by Pixel perfect - Flaticon</a>
-	<a href="https://www.flaticon.com/free-icons/draw" title="draw icons">Draw icons created by Freepik - Flaticon</a>
-	<a href="https://www.flaticon.com/free-icons/tasks" title="tasks icons">Tasks icons created by Graphics Plazza - Flaticon</a>
-	<a href="https://www.flaticon.com/free-icons/link" title="link icons">Link icons created by Creaticca Creative Agency - Flaticon</a>
-	<a href="https://www.flaticon.com/free-icons/settings" title="settings icons">Settings icons created by Pixel perfect - Flaticon</a>
-	'''
 	
 func set_button_positions():
 	var radius = 47
@@ -118,3 +136,12 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 func reset_buttons():
 	for child in $"Buttons".get_children():
 		child.reset()
+
+func open(name):
+	if windows[name][1] == 0:
+		var child = windows[name][0].instantiate()
+		add_child(child)
+		windows[name][1] = 1
+		
+func closed(name):
+	windows[name][1] = 0

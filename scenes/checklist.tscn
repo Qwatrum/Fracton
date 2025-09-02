@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcbondhhqa2r7"]
+
+[ext_resource type="Script" path="res://scenes/todo.gd" id="1_dqxhx"]
+[ext_resource type="FontFile" uid="uid://d15asrafrelve" path="res://fonts/Rubik/static/Rubik-Bold.ttf" id="2_j820u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uoggo"]
+font = ExtResource("2_j820u")
+font_size = 32
+font_color = Color(0, 0.854902, 0.858824, 1)
+
+[node name="Checklist" type="Window"]
+title = "Fracton - ToDo"
+initial_position = 4
+size = Vector2i(420, 300)
+unresizable = true
+transparent = true
+script = ExtResource("1_dqxhx")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.27451, 0.415686, 0.45098, 1)
+
+[node name="AddNew" type="LineEdit" parent="."]
+offset_left = 5.0
+offset_top = 268.0
+offset_right = 306.0
+offset_bottom = 299.0
+placeholder_text = "Add New"
+
+[node name="Add" type="Button" parent="."]
+offset_left = 315.0
+offset_top = 268.0
+offset_right = 415.0
+offset_bottom = 299.0
+text = "Add"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = 5.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "ToDo"
+label_settings = SubResource("LabelSettings_uoggo")
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="Add" to="." method="_on_add_pressed"]

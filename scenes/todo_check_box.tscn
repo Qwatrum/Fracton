@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf5nmrd6vppeb"]
+
+[ext_resource type="Script" path="res://scenes/todo_check_box.gd" id="1_1es05"]
+
+[node name="TodoCheckBox" type="CheckBox"]
+offset_right = 24.0
+offset_bottom = 24.0
+script = ExtResource("1_1es05")
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]

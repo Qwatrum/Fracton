@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bv02s7u64xo6x"]
+[gd_scene load_steps=3 format=3 uid="uid://bv02s7u64xo6x"]
 
 [ext_resource type="Script" path="res://scenes/button.gd" id="1_t6ows"]
-[ext_resource type="Texture2D" uid="uid://d18usfaasdrj6" path="res://assets/ai.png" id="2_s3qik"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_48tk0"]
 radius = 32.0
@@ -12,7 +11,6 @@ script = ExtResource("1_t6ows")
 image_name = "settings"
 
 [node name="Normal" type="Sprite2D" parent="."]
-texture = ExtResource("2_s3qik")
 
 [node name="Hover" type="Sprite2D" parent="."]
 

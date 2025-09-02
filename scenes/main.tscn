@@ -42,9 +42,9 @@ theme = SubResource("Theme_drrg1")
 scale = Vector2(0.5, 0.5)
 image_name = "link"
 
-[node name="GitHub" parent="Buttons" instance=ExtResource("5_5q513")]
-scale = Vector2(0.5, 0.5)
-image_name = "github"
+[node name="Close" parent="Buttons" instance=ExtResource("5_5q513")]
+scale = Vector2(0.4, 0.4)
+image_name = "close"
 
 [node name="Settings" parent="Buttons" instance=ExtResource("5_5q513")]
 scale = Vector2(0.5, 0.5)
@@ -55,7 +55,7 @@ image_name = "clock"
 
 [node name="Notes" parent="Buttons" instance=ExtResource("5_5q513")]
 scale = Vector2(0.5, 0.5)
-image_name = "wirte"
+image_name = "notes"
 
 [node name="Drawing" parent="Buttons" instance=ExtResource("5_5q513")]
 scale = Vector2(0.5, 0.5)

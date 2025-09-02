@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfq3wwvivhd1k"]
+
+[ext_resource type="FontFile" uid="uid://bsdutbrstdio7" path="res://fonts/Rubik/static/Rubik-Medium.ttf" id="1_bjtg4"]
+[ext_resource type="Script" path="res://scenes/notes.gd" id="1_yrxhc"]
+
+[sub_resource type="Theme" id="Theme_pxnlx"]
+TextEdit/colors/background_color = Color(0, 0, 0, 0.494118)
+TextEdit/fonts/font = ExtResource("1_bjtg4")
+
+[node name="Notes" type="Window"]
+title = "Fracton - Notes"
+initial_position = 4
+size = Vector2i(400, 400)
+script = ExtResource("1_yrxhc")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_pxnlx")
+text = "wadawd"
+context_menu_enabled = false
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1267s7atpwjr"]
+
+[ext_resource type="FontFile" uid="uid://d15asrafrelve" path="res://fonts/Rubik/static/Rubik-Bold.ttf" id="1_b4m4q"]
+[ext_resource type="Script" path="res://scenes/close.gd" id="1_pfp4t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q6286"]
+font = ExtResource("1_b4m4q")
+font_size = 20
+
+[node name="Close" type="Window"]
+title = "Fracton - Close"
+initial_position = 4
+size = Vector2i(300, 120)
+script = ExtResource("1_pfp4t")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.00784314, 0.0196078, 0.0235294, 1)
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 5.0
+offset_bottom = 29.0
+grow_horizontal = 2
+text = "Closing - Are you sure?"
+label_settings = SubResource("LabelSettings_q6286")
+horizontal_alignment = 1
+
+[node name="Close" type="Button" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_right = 112.0
+offset_bottom = 15.5
+grow_vertical = 2
+text = "Yes"
+
+[node name="Back" type="Button" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "No"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
