@@ -66,8 +66,8 @@ func _process(_delta):
 		main_window.borderless = true
 		main_window.min_size = Vector2(165,165)
 		main_window.size = main_window.min_size
-		main_window.position.x += 49 #64
-		main_window.position.y += 78 #100
+		main_window.position.x += 49
+		main_window.position.y += 78
 		moving = false
 		
 		hint.hide()
@@ -82,15 +82,6 @@ func _process(_delta):
 		$"Buttons".hide()
 		reset_buttons()
 		
-		
-	if Input.is_action_just_pressed("ui_left"):
-		main_window.position.x -= 5
-	if Input.is_action_just_pressed("ui_right"):
-		main_window.position.x += 5
-	if Input.is_action_just_pressed("ui_up"):
-		main_window.position.y -= 5
-	if Input.is_action_just_pressed("ui_down"):
-		main_window.position.y += 5
 	
 	
 func set_button_positions():

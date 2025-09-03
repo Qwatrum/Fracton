@@ -32,9 +32,8 @@ offset_top = -32.0
 offset_right = 442.0
 offset_bottom = -8.0
 grow_vertical = 0
-text = "C: change color, W: change width, Z: undo"
+text = "C: change color, W: change width"
 label_settings = SubResource("LabelSettings_801n3")
-horizontal_alignment = 1
 
 [node name="Preview" type="Line2D" parent="ColorRect/Tips"]
 position = Vector2(-55, -450)

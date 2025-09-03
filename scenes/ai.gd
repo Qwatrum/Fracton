@@ -102,7 +102,7 @@ func add_response():
 	http_request.request_completed.connect(_on_bot_response)
 	
 	var headers = ["Content-Type: application/json"]
-	var body = {"messages":messages}
+	var body = {"model":"qwen/qwen3-32b","messages":messages}
 	var json_body = JSON.stringify(body)
 	
 	var err = http_request.request(api_url,headers,HTTPClient.METHOD_POST,json_body)
