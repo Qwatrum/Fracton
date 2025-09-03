@@ -21,19 +21,19 @@
 ### Features:
 - Transparent moveable window for the main menu
 
-![transparent_window](demo/fracton_demo(1).png)
+![transparent_window](demo/fracton_demo (1).png)
 (stackoverflow.com)
 
-![main_menu](demo/fracton_demo(2).png)
+![main_menu](demo/fracton_demo (2).png)
 
 - Multiple windows supported
 
-![two_windows](demo/fracton_demo(4).png)
+![two_windows](demo/fracton_demo (4).png)
 
 - Links: Add any links to have a quick access to websites
 - Timer: Set an alarm for your breaks or lock-in time
 
-![timer](demo/fracton_demo(5).png)
+![timer](demo/fracton_demo (5).png)
 
 - Notes: A notes window with unlimited space for your notes
 - Drawing: Draw sketches, or silly comics. You can change the size and color and undo lines. Secret: Press `t` to make the window transparent
@@ -41,13 +41,13 @@
 - ToDo: A place to organize the task you need to do
 - AI: An AI-Chatbot where you can set the system prompt and use it as much as you want. Please no AI slop though. Read the note for the AI below
 
-![ai](demo/fracton_demo(3).png)
-![ai_new_chat](demo/fracton(7).png)
+![ai](demo/fracton_demo (3).png)
+![ai_new_chat](demo/fracton (7).png)
 
 - Settings: Hide the text telling you how to place the main menu window. And choose which windows stay always at the top of your screen. You can also delete all your data, be careful
 - Close: If you want to exit this application :'(
 
-![other_image](demo/fracton_demo(6).png)
+![other_image](demo/fracton_demo (6).png)
 
 
 ### Saving data:
