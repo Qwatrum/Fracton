@@ -42,7 +42,7 @@
 - AI: An AI-Chatbot where you can set the system prompt and use it as much as you want. Please no AI slop though. Read the note for the AI below
 
 ![ai](demo/fracton_demo(3).png)
-![ai_new_chat](demo/fracton(7).png)
+![ai_new_chat](demo/fracton_demo(7).png)
 
 - Settings: Hide the text telling you how to place the main menu window. And choose which windows stay always at the top of your screen. You can also delete all your data, be careful
 - Close: If you want to exit this application :'(
