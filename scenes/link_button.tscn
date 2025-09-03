@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://r12xwqji2yd"]
+
+[ext_resource type="FontFile" uid="uid://bsdutbrstdio7" path="res://fonts/Rubik/static/Rubik-Medium.ttf" id="1_dj405"]
+[ext_resource type="Script" path="res://scenes/link_button.gd" id="2_44s0d"]
+[ext_resource type="FontFile" uid="uid://d15asrafrelve" path="res://fonts/Rubik/static/Rubik-Bold.ttf" id="2_bo6tq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1lssy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8njh8"]
+
+[sub_resource type="Theme" id="Theme_mcjg4"]
+Button/colors/font_color = Color(0.580392, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.913725, 0.207843, 0, 1)
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("2_bo6tq")
+Button/styles/hover = SubResource("StyleBoxEmpty_1lssy")
+Button/styles/normal = SubResource("StyleBoxEmpty_8njh8")
+LinkButton/colors/font_color = Color(0.917647, 0.890196, 0.172549, 1)
+LinkButton/colors/font_hover_color = Color(0.913725, 0.207843, 0.858824, 1)
+LinkButton/fonts/font = ExtResource("1_dj405")
+
+[node name="LinkButton" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 31.0
+offset_bottom = 30.0
+mouse_filter = 2
+theme = SubResource("Theme_mcjg4")
+script = ExtResource("2_44s0d")
+
+[node name="LinkButton" type="LinkButton" parent="."]
+layout_mode = 1
+offset_right = 304.0
+offset_bottom = 40.0
+
+[node name="Remove" type="Button" parent="."]
+layout_mode = 0
+offset_left = 372.0
+offset_top = -3.0
+offset_right = 399.0
+offset_bottom = 25.0
+text = "X"
+
+[connection signal="button_down" from="Remove" to="." method="_on_remove_button_down"]

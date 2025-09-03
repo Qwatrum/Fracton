@@ -21,7 +21,7 @@ radius = 446.809
 [sub_resource type="LabelSettings" id="LabelSettings_qlbx2"]
 font = ExtResource("3_03cu7")
 font_size = 20
-font_color = Color(0.913725, 0.207843, 0.858824, 1)
+font_color = Color(0.427451, 0.603922, 0.647059, 1)
 outline_size = 7
 outline_color = Color(0, 0, 0, 1)
 

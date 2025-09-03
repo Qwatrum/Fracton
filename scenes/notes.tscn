@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://scenes/notes.gd" id="1_yrxhc"]
 
 [sub_resource type="Theme" id="Theme_pxnlx"]
-TextEdit/colors/background_color = Color(0, 0, 0, 0.494118)
 TextEdit/fonts/font = ExtResource("1_bjtg4")
 
 [node name="Notes" type="Window"]
@@ -20,7 +19,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_pxnlx")
-text = "wadawd"
 context_menu_enabled = false
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]

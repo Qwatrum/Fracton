@@ -1,0 +1,231 @@
+[gd_scene load_steps=10 format=3 uid="uid://bh1pip4ljof65"]
+
+[ext_resource type="FontFile" uid="uid://d15asrafrelve" path="res://fonts/Rubik/static/Rubik-Bold.ttf" id="1_np1mq"]
+[ext_resource type="Texture2D" uid="uid://b2fmtvsnba2gg" path="res://assets/clock.png" id="2_61gux"]
+[ext_resource type="Script" path="res://scenes/timer.gd" id="2_uwmtq"]
+[ext_resource type="AudioStream" uid="uid://6o2rirt5fq4m" path="res://assets/alarm.mp3" id="4_pyp2w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4h6n0"]
+bg_color = Color(0.27451, 0.415686, 0.45098, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.917647, 0.890196, 0.172549, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ph4rx"]
+bg_color = Color(0.27451, 0.415686, 0.45098, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.917647, 0.890196, 0.172549, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="Theme" id="Theme_sya2i"]
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_np1mq")
+Button/styles/hover = SubResource("StyleBoxFlat_4h6n0")
+Button/styles/normal = SubResource("StyleBoxFlat_ph4rx")
+
+[sub_resource type="LabelSettings" id="LabelSettings_uucfj"]
+font = ExtResource("1_np1mq")
+font_size = 34
+font_color = Color(0.917647, 0.890196, 0.172549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jyla4"]
+font = ExtResource("1_np1mq")
+font_size = 64
+font_color = Color(0.917647, 0.890196, 0.235294, 1)
+
+[node name="Timer" type="Window"]
+title = "Fracton- Timer"
+initial_position = 4
+size = Vector2i(512, 400)
+unresizable = true
+theme = SubResource("Theme_sya2i")
+script = ExtResource("2_uwmtq")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.27451, 0.415686, 0.45098, 1)
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 41.0
+grow_horizontal = 2
+text = "Timer"
+label_settings = SubResource("LabelSettings_uucfj")
+horizontal_alignment = 1
+
+[node name="New_Timer" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Hours" type="LineEdit" parent="New_Timer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 1
+offset_left = 154.0
+offset_top = 244.0
+offset_right = 222.0
+offset_bottom = 276.0
+placeholder_text = "hour"
+alignment = 1
+max_length = 2
+context_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Minutes" type="LineEdit" parent="New_Timer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 0
+offset_left = 222.0
+offset_top = 244.0
+offset_right = 290.0
+offset_bottom = 276.0
+placeholder_text = "min"
+alignment = 1
+max_length = 2
+context_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Seconds" type="LineEdit" parent="New_Timer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 0
+offset_left = 290.0
+offset_top = 244.0
+offset_right = 358.0
+offset_bottom = 276.0
+placeholder_text = "sec"
+alignment = 1
+max_length = 2
+context_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Start" type="Button" parent="New_Timer"]
+layout_mode = 1
+offset_left = 225.0
+offset_top = 284.0
+offset_right = 287.0
+offset_bottom = 316.0
+text = "Start"
+
+[node name="Five_min" type="Button" parent="New_Timer"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 100.0
+offset_right = 117.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 28
+text = "5 min"
+
+[node name="Ten_min" type="Button" parent="New_Timer"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 100.0
+offset_right = 242.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 28
+text = "10 min"
+
+[node name="Fifteen_min" type="Button" parent="New_Timer"]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 100.0
+offset_right = 367.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 28
+text = "15 min"
+
+[node name="Half_hour" type="Button" parent="New_Timer"]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 100.0
+offset_right = 495.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 28
+text = "30 min"
+
+[node name="Current_Timer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Clock" type="Sprite2D" parent="Current_Timer"]
+position = Vector2(256, 200)
+texture = ExtResource("2_61gux")
+
+[node name="TimeLeft" type="Label" parent="Current_Timer"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -110.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_jyla4")
+horizontal_alignment = 1
+
+[node name="Cancel" type="Button" parent="Current_Timer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = 50.0
+offset_right = 58.5
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Cancel"
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_pyp2w")
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="button_down" from="New_Timer/Start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="New_Timer/Five_min" to="." method="_on_five_min_button_down"]
+[connection signal="button_down" from="New_Timer/Ten_min" to="." method="_on_ten_min_button_down"]
+[connection signal="button_down" from="New_Timer/Fifteen_min" to="." method="_on_fifteen_min_button_down"]
+[connection signal="button_down" from="New_Timer/Half_hour" to="." method="_on_half_hour_button_down"]
+[connection signal="button_down" from="Current_Timer/Cancel" to="." method="_on_cancel_button_down"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

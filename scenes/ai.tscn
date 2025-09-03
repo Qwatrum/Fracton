@@ -1,0 +1,293 @@
+[gd_scene load_steps=15 format=3 uid="uid://cl5hvlmmxw4hb"]
+
+[ext_resource type="FontFile" uid="uid://d15asrafrelve" path="res://fonts/Rubik/static/Rubik-Bold.ttf" id="1_5aojj"]
+[ext_resource type="Script" path="res://scenes/ai.gd" id="1_wx5ns"]
+[ext_resource type="FontFile" uid="uid://7xpcevw7wcuq" path="res://fonts/Rubik/static/Rubik-SemiBold.ttf" id="3_qgdms"]
+[ext_resource type="FontFile" uid="uid://bsdutbrstdio7" path="res://fonts/Rubik/static/Rubik-Medium.ttf" id="4_ajk35"]
+[ext_resource type="FontFile" uid="uid://dbdssx48eyjhu" path="res://fonts/Rubik/static/Rubik-ExtraBold.ttf" id="6_n3yvg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dmjyw"]
+font = ExtResource("1_5aojj")
+font_size = 32
+font_color = Color(0.917647, 0.890196, 0.172549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yaxwc"]
+font = ExtResource("4_ajk35")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_ljdhb"]
+font = ExtResource("3_qgdms")
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqh2r"]
+bg_color = Color(0.32549, 0.478431, 0.517647, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.917647, 0.890196, 0.172549, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3wmi"]
+bg_color = Color(0.27451, 0.415686, 0.45098, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.917647, 0.890196, 0.172549, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="Theme" id="Theme_sj2nw"]
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("4_ajk35")
+Button/styles/hover = SubResource("StyleBoxFlat_uqh2r")
+Button/styles/normal = SubResource("StyleBoxFlat_t3wmi")
+
+[sub_resource type="Theme" id="Theme_m4uwg"]
+Button/colors/font_color = Color(0.917647, 0.890196, 0.172549, 1)
+Button/font_sizes/font_size = 28
+Button/fonts/font = ExtResource("6_n3yvg")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0wwqe"]
+font = ExtResource("1_5aojj")
+font_size = 20
+
+[sub_resource type="Theme" id="Theme_rue1i"]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_5aojj")
+
+[node name="AI" type="Window"]
+title = "Fracton - AI"
+initial_position = 4
+size = Vector2i(768, 640)
+unresizable = true
+script = ExtResource("1_wx5ns")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.27451, 0.415686, 0.45098, 1)
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "FractonAI"
+label_settings = SubResource("LabelSettings_dmjyw")
+horizontal_alignment = 1
+
+[node name="ChatName" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -167.0
+offset_bottom = 34.0
+grow_horizontal = 0
+label_settings = SubResource("LabelSettings_yaxwc")
+horizontal_alignment = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(150, 0)
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = 279.0
+grow_vertical = 2
+
+[node name="Chats" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ChatsTitle" type="Label" parent="ScrollContainer/Chats"]
+layout_mode = 2
+text = "Chats"
+label_settings = SubResource("LabelSettings_ljdhb")
+
+[node name="NewChat" type="Button" parent="ScrollContainer/Chats"]
+layout_mode = 2
+theme = SubResource("Theme_sj2nw")
+text = "New Chat"
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/Chats"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="."]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer2"]
+layout_mode = 2
+
+[node name="Chat" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Chat"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = 40.0
+offset_right = 376.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Chat/ScrollContainer"]
+custom_minimum_size = Vector2(540, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MessageEdit" type="TextEdit" parent="Chat"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -452.0
+offset_top = -80.0
+offset_right = -52.0
+grow_horizontal = 0
+grow_vertical = 0
+placeholder_text = "Your message goes here."
+context_menu_enabled = false
+
+[node name="Send" type="Button" parent="Chat"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -63.0
+offset_right = -5.0
+offset_bottom = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_m4uwg")
+text = ">"
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -110.0
+offset_right = 150.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 24.0
+grow_horizontal = 2
+text = "New Chat"
+label_settings = SubResource("LabelSettings_0wwqe")
+
+[node name="Name" type="LineEdit" parent="Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -68.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Chat Name"
+max_length = 21
+context_menu_enabled = false
+
+[node name="SystemPrompt" type="TextEdit" parent="Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -30.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "System Prompt
+e.g.: You are a helpful assistent..."
+context_menu_enabled = false
+
+[node name="Create" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -40.0
+offset_right = 58.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_rue1i")
+theme_override_font_sizes/font_size = 20
+text = "Create"
+
+[node name="Nope" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -37.0
+offset_bottom = 37.0
+grow_horizontal = 0
+theme = SubResource("Theme_rue1i")
+theme_override_font_sizes/font_size = 24
+text = "X"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="button_down" from="ScrollContainer/Chats/NewChat" to="." method="_on_new_chat_button_down"]
+[connection signal="button_down" from="Chat/Send" to="." method="_on_send_button_down"]
+[connection signal="button_down" from="Panel/Create" to="." method="_on_create_button_down"]
+[connection signal="button_down" from="Panel/Nope" to="." method="_on_nope_button_down"]

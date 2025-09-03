@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://byqydi4ih0bup"]
+
+[ext_resource type="FontFile" uid="uid://bsdutbrstdio7" path="res://fonts/Rubik/static/Rubik-Medium.ttf" id="1_mp0cm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bnt8d"]
+font = ExtResource("1_mp0cm")
+font_size = 20
+font_color = Color(0.917647, 0.890196, 0.172549, 1)
+
+[node name="BotAnswerLabel" type="Label"]
+custom_minimum_size = Vector2(450, 0)
+offset_right = 499.0
+offset_bottom = 159.0
+label_settings = SubResource("LabelSettings_bnt8d")
+autowrap_mode = 3

@@ -21,7 +21,7 @@ func save_settings():
 func _ready():
 	dir_absolute(save_file_path)
 	load_settings()
-	print(settings)
+
 	$"ScrollContainer/VBoxContainer/MoveHint".button_pressed = settings[0]
 	var i = 1
 	for child in $"ScrollContainer/VBoxContainer/HBoxContainer".get_children():
@@ -29,7 +29,7 @@ func _ready():
 		i+=1
 	
 func _on_close_requested():
-	#print(settings)
+
 	save_settings()
 	queue_free()
 	get_parent().closed("settings")

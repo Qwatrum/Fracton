@@ -13,13 +13,13 @@ CheckButton/font_sizes/font_size = 16
 CheckButton/fonts/font = ExtResource("2_cwp8a")
 CheckButton/styles/focus = SubResource("StyleBoxEmpty_fvk2u")
 LinkButton/colors/font_color = Color(0, 0.87451, 0.87451, 1)
-LinkButton/colors/font_hover_color = Color(0, 0.372549, 0.94902, 1)
+LinkButton/colors/font_hover_color = Color(0.219608, 0.498039, 1, 1)
 LinkButton/fonts/font = ExtResource("2_cwp8a")
 
 [sub_resource type="LabelSettings" id="LabelSettings_pgwas"]
 font = ExtResource("3_u08h8")
 font_size = 24
-font_color = Color(0, 0.501961, 0.0705882, 1)
+font_color = Color(0.917647, 0.890196, 0.172549, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gjtlg"]
 font = ExtResource("2_cwp8a")
@@ -65,7 +65,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.00784314, 0.0196078, 0.0235294, 1)
+color = Color(0.27451, 0.415686, 0.45098, 1)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 anchors_preset = 15
@@ -134,12 +134,13 @@ Fonts: Rubik, Anonymous Pro
 Icons: Flaticon.com:  Pixel Perfect (Close, Settings),
  Rikas Dzihab (Notes), Ilham Fitrotul Hayat (Timer),
  Freepik (Draw), LAFS (AI), Graphics Plazza (ToDo),
- Creaticca Creative Agency (Links)"
+ Creaticca Creative Agency (Links)
+Music: Pixabay.com"
 label_settings = SubResource("LabelSettings_iqkw2")
 
 [node name="Link" type="LinkButton" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
-text = "Qwatrum.com"
+text = "my GitHub"
 uri = "https://github.com/Qwatrum"
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]

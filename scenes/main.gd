@@ -8,8 +8,11 @@ extends Node
 @onready var close_window = preload("res://scenes/close.tscn")
 @onready var notes_window = preload("res://scenes/notes.tscn")
 @onready var drawing_window = preload("res://scenes/drawing.tscn")
+@onready var timer_window = preload("res://scenes/timer.tscn")
+@onready var link_window = preload("res://scenes/link.tscn")
+@onready var ai_window = preload("res://scenes/ai.tscn")
 
-@onready var windows = {"settings":[settings_window,0],"checklist":[checklist_window,0],"close":[close_window,0],"notes":[notes_window,0],"drawing":[drawing_window,0]}
+@onready var windows = {"settings":[settings_window,0],"checklist":[checklist_window,0],"close":[close_window,0],"notes":[notes_window,0],"drawing":[drawing_window,0],"clock":[timer_window,0],"link":[link_window,0],"ai":[ai_window,0]}
 
 var moving: bool
 var buttons_shown: bool
